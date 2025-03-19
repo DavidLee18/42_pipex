@@ -19,29 +19,24 @@ int main(const int argc, const char **argv, char **envp)
 	if (access(argv[1], R_OK) == -1 || (access(argv[4], F_OK) == 0 && access(argv[4], W_OK) == -1))
 		return (perror(PIPEX), EXIT_FAILURE);
 	files[0] = fdc_open(&dyn, &fds, argv[1], O_RDONLY);
-	rw = (t_pipe_rw **)gc_calloc(&dyn, 3, sizeof(t_pipe_rw *));
+	rw = (t_pipe_rw **)gc_calloc(&dyn, 1, sizeof(t_pipe_rw *));
 	if (rw == NULL)
 		return (ft_fprintf(STDERR_FILENO, "alloc fail\n"), EXIT_FAILURE);
 	rw[0] = fdc_pipe(&dyn, &fds);
-	if (dup2(files[0], rw[0]->write_end) == -1)
-		return (perror(PIPEX), fdc_close_all(dyn, fds), EXIT_FAILURE);
 	files[1] = fdc_open(&dyn, &fds, argv[4], O_WRONLY | O_CREAT | O_TRUNC);
-	rw[2] = fdc_pipe(&dyn, &fds);
-	if (dup2(files[1], rw[2]->read_end) == -1)
-		return (perror(PIPEX), fdc_close_all(dyn, fds), EXIT_FAILURE);
-	rw[1] = fdc_pipe(&dyn, &fds);
 	pids[0] = fork();
 	if (pids[0] == -1)
 		return (perror(PIPEX), fdc_close_all(dyn, fds), EXIT_FAILURE);
 	if (pids[0] == 0)
 	{
 		char **argv1 = gc_split(&dyn, argv[2], ' ');
-		if (argv1 == NULL || dup2(rw[1]->write_end, STDOUT_FILENO) == -1 || dup2(rw[0]->read_end, STDIN_FILENO) == -1)
+		if (argv1 == NULL || dup2(rw[0]->write_end, STDOUT_FILENO) == -1 || dup2(files[0], STDIN_FILENO) == -1)
 		{
 			// fdc_close_all(dyn, fds);
 			exit(EXIT_FAILURE);
 		}
 		execve(argv1[0], argv1, envp);
+		exit(EXIT_FAILURE);
 	}
 	pids[1] = fork();
 	if (pids[1] == -1)
@@ -49,9 +44,10 @@ int main(const int argc, const char **argv, char **envp)
 	if (pids[1] == 0)
 	{
 		char **argv2 = gc_split(&dyn, argv[3], ' ');
-		if (argv2 == NULL || dup2(rw[1]->read_end, STDIN_FILENO) == -1 || dup2(rw[2]->write_end, STDOUT_FILENO) == -1)
+		if (argv2 == NULL || dup2(rw[0]->read_end, STDIN_FILENO) == -1 || dup2(files[1], STDOUT_FILENO) == -1)
 			exit(EXIT_FAILURE);
 		execve(argv2[0], argv2, envp);
+		exit(EXIT_FAILURE);
 	}
 	waitpid(pids[0], NULL, 0);
 	waitpid(pids[1], NULL, 0);
