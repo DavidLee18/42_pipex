@@ -11,6 +11,7 @@ int main(const int argc, const char **argv, char **envp)
 	t_list		*fds;
 	t_pipe_rw	**rw;
 	pid_t		pids[2];
+	char		**argv1;
 
 	dyn = NULL;
 	fds = NULL;
@@ -29,12 +30,10 @@ int main(const int argc, const char **argv, char **envp)
 		return (perror(PIPEX), fdc_close_all(dyn, fds), EXIT_FAILURE);
 	if (pids[0] == 0)
 	{
-		char **argv1 = gc_split(&dyn, argv[2], ' ');
+		close(rw[0]->read_end);
+		argv1 = gc_split(&dyn, argv[2], ' ');
 		if (argv1 == NULL || dup2(rw[0]->write_end, STDOUT_FILENO) == -1 || dup2(files[0], STDIN_FILENO) == -1)
-		{
-			// fdc_close_all(dyn, fds);
 			exit(EXIT_FAILURE);
-		}
 		execve(argv1[0], argv1, envp);
 		exit(EXIT_FAILURE);
 	}
@@ -43,12 +42,15 @@ int main(const int argc, const char **argv, char **envp)
 		return (perror(PIPEX), fdc_close_all(dyn, fds), EXIT_FAILURE);
 	if (pids[1] == 0)
 	{
-		char **argv2 = gc_split(&dyn, argv[3], ' ');
-		if (argv2 == NULL || dup2(rw[0]->read_end, STDIN_FILENO) == -1 || dup2(files[1], STDOUT_FILENO) == -1)
+		close(rw[0]->write_end);
+		argv1 = gc_split(&dyn, argv[3], ' ');
+		if (argv1 == NULL || dup2(rw[0]->read_end, STDIN_FILENO) == -1 || dup2(files[1], STDOUT_FILENO) == -1)
 			exit(EXIT_FAILURE);
-		execve(argv2[0], argv2, envp);
+		execve(argv1[0], argv1, envp);
 		exit(EXIT_FAILURE);
 	}
+	close(rw[0]->write_end);
+	close(rw[0]->read_end);
 	waitpid(pids[0], NULL, 0);
 	waitpid(pids[1], NULL, 0);
 	return (fdc_close_all(dyn, fds), EXIT_SUCCESS);
