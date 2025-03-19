@@ -10,11 +10,7 @@ int	fdc_open(t_list **dyn, t_list **fds, const char *file, const int flag)
 
 	fd = open(file, flag);
 	if (fd == -1 || !fdc_add_to_list(dyn, fds, fd))
-	{
-		perror(PIPEX);
-		fdc_close_all(*dyn, *fds);
-		exit(EXIT_FAILURE);
-	}
+		return (-1);
 	return (fd);
 }
 
@@ -24,20 +20,18 @@ t_pipe_rw	*fdc_pipe(t_list **dyn, t_list **fds)
 	int			_fds[2];
 
 	if (pipe(_fds) == -1)
-	{
-		perror(PIPEX);
-		fdc_close_all(*dyn, *fds);
-		exit(EXIT_FAILURE);
-	}
+		return (NULL);
 	rw = (t_pipe_rw *)gc_calloc(dyn, 1, sizeof(t_pipe_rw));
 	if (rw == NULL)
 	{
-		perror(PIPEX);
-		fdc_close_all(*dyn, *fds);
-		exit(EXIT_FAILURE);
+		close(_fds[0]);
+		close(_fds[1]);
+		return (NULL);
 	}
 	rw->read_end = _fds[0];
 	rw->write_end = _fds[1];
+	if (!fdc_add_to_list(dyn, fds, rw->read_end) || !fdc_add_to_list(dyn, fds, rw->write_end))
+		return (NULL);
 	return (rw);
 }
 

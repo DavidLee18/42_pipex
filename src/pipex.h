@@ -26,3 +26,9 @@ t_pipe_rw	*fdc_pipe(t_list **dyn, t_list **fds);
 int			fdc_close_all(t_list *dyn, t_list *fds);
 
 _Bool		fdc_add_to_list(t_list **dyn, t_list **fds, int fd);
+
+pid_t		exec1(t_list *dyn_fds[2], const char *cmd, int fps[4], char **envp);
+
+pid_t		exec2(t_list *dyn_fds[2], const char *cmd, int fps[4], char **envp);
+
+void		close_wait(int fps[4], pid_t pids[2]);
