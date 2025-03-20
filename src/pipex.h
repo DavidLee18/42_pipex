@@ -31,4 +31,8 @@ pid_t		exec1(t_list *dyn_fds[2], const char *cmd, int fps[4], char **envp);
 
 pid_t		exec2(t_list *dyn_fds[2], const char *cmd, int fps[4], char **envp);
 
-void		close_wait(int fps[4], pid_t pids[2]);
+void		close_wait(t_list *dyn, int fps[4], pid_t pids[2]);
+
+char		**get_path(t_list **dyn, char **envp);
+
+char		*get_exec_path(t_list **dyn, char **path, const char *cmd);
