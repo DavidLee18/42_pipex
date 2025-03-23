@@ -53,7 +53,7 @@
         <entry key="$PROJECT_DIR$/ft_printf/libft/get_next_line" value="5ad999320306798df36cf525244e821920ab32ce" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/ft_printf" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -69,11 +69,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/cmake-build-debug/outfile" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/ijaehyeon/source/42_pipex/ft_printf/libft/gc.c" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ft_printf/src/free_fmt_arg.c" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ijaehyeon/source/42_pipex/ft_printf/src/free_fmt_arg.c" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/ijaehyeon/source/42_pipex/ft_printf/src/free_fmt_arg.c" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ft_printf/src/free_fmt_arg.c" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -105,7 +101,8 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "last_opened_file_path": "/Users/ijaehyeon/source/42_pipex/ft_printf/libft",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/ijaehyeon/source/42_pipex",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -117,14 +114,15 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/ft_printf/libft" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="pipex" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="infile &quot;/bin/cat&quot; &quot;/usr/bin/grep e&quot; outfile" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project" TARGET_NAME="pipex" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Project" RUN_TARGET_NAME="pipex">
@@ -147,6 +145,7 @@
       <workItem from="1742193652126" duration="27374000" />
       <workItem from="1742270740725" duration="100469000" />
       <workItem from="1742566660685" duration="25998000" />
+      <workItem from="1742702028651" duration="2443000" />
     </task>
     <task id="LOCAL-00001" summary="update `ft_printf` to `ft_fprintf`">
       <option name="closed" value="true" />
@@ -252,7 +251,23 @@
       <option name="project" value="LOCAL" />
       <updated>1742701970681</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="include CLion files">
+      <option name="closed" value="true" />
+      <created>1742702087952</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1742702087952</updated>
+    </task>
+    <task id="LOCAL-00015" summary="update Makefile">
+      <option name="closed" value="true" />
+      <created>1742707467209</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1742707467209</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,6 +301,7 @@
     <MESSAGE value="bonus: multi-pipe works, here_doc is on progress.." />
     <MESSAGE value="impl `gc_getline` + here_doc!" />
     <MESSAGE value="fix typo.." />
+    <MESSAGE value="include CLion files" />
     <MESSAGE value="update Makefile" />
     <option name="LAST_COMMIT_MESSAGE" value="update Makefile" />
   </component>
