@@ -1,28 +1,37 @@
-//
-// Created by 이재현 on 2025-03-16.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaehylee <jaehylee@student.42gyeongsan.kr> +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/23 12:55:14 by jaehylee          #+#    #+#             */
+/*   Updated: 2025/03/23 14:52:00 by jaehylee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "pipex_bonus.h"
 
-int main(const int argc, char **argv, char **envp)
+int	main(const int argc, char **argv, char **envp)
 {
 	t_vec		fps;
 	t_list		*dyn;
 
 	dyn = NULL;
-	fps = (t_vec){ .ptr = NULL, .len = 0, .cap = 0 };
+	fps = (t_vec){.ptr = NULL, .len = 0, .cap = 0};
 	if (argc < 5)
 		return (ft_fprintf(STDERR_FILENO, "too few args!\n"), EXIT_FAILURE);
 	if (access(argv[argc - 1], F_OK) == 0 && access(argv[argc - 1], W_OK) == -1)
 		return (perror(PIPEX), EXIT_FAILURE);
 	if (ft_strcmp(argv[1], "here_doc") && access(argv[1], R_OK) == -1)
 		perror(PIPEX);
-	fill_zeros(&dyn, &fps, 2 * (argc - 3 - (ft_strcmp(argv[1], "here_doc") == 0)));
+	fill_zeros(&dyn, &fps, 2 * (argc - 3 - (ft_strcmp(argv[1],
+					"here_doc") == 0)));
 	if (open_pipes(&fps) == -1)
 		return (perror(PIPEX), fps_close_all(dyn, &fps), EXIT_FAILURE);
 	if (open_files(&fps, &dyn, argv + 1, argv[argc - 1]) == -1)
 		return (perror(PIPEX), fps_close_all(dyn, &fps), EXIT_FAILURE);
-	exec_cmds(&dyn, (char**[]){ argv, envp }, &fps);
+	exec_cmds(&dyn, (char **[]){argv, envp}, &fps);
 	return (close_wait(dyn, &fps), EXIT_SUCCESS);
 }
 
@@ -66,7 +75,8 @@ pid_t	exec_n(t_list **dyn, char **arg_env[2], t_vec *fps, size_t n)
 	char	**argv;
 	char	*absol_path;
 
-	argv = gc_split(dyn, arg_env[0][n + 2 + (ft_strcmp(arg_env[0][1], "here_doc") == 0)], ' ');
+	argv = gc_split(dyn, arg_env[0][n + 2 + (ft_strcmp(arg_env[0][1],
+					"here_doc") == 0)], ' ');
 	if (argv == NULL)
 		return (perror(PIPEX), -1);
 	absol_path = get_exec_path(dyn, get_path(dyn, arg_env[1]), argv[0]);
@@ -78,7 +88,8 @@ pid_t	exec_n(t_list **dyn, char **arg_env[2], t_vec *fps, size_t n)
 	if (id == 0)
 	{
 		close_pipes(fps, n);
-		if (dup2(fps->ptr[2 * n], STDIN_FILENO) == -1 || dup2(fps->ptr[2 * n + 1], STDOUT_FILENO) == -1)
+		if (dup2(fps->ptr[2 * n], STDIN_FILENO) == -1
+			|| dup2(fps->ptr[2 * n + 1], STDOUT_FILENO) == -1)
 			exit(EXIT_FAILURE);
 		execve(absol_path, argv, arg_env[1]);
 		exit(EXIT_FAILURE);

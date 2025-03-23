@@ -1,17 +1,26 @@
-//
-// Created by 이재현 on 2025-03-16.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pipex.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaehylee <jaehylee@student.42gyeongsan.kr> +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/23 12:55:14 by jaehylee          #+#    #+#             */
+/*   Updated: 2025/03/23 14:55:44 by jaehylee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PIPEX_H
-#define PIPEX_H
-#include "../ft_printf/src/ft_printf.h"
-#include <stdio.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <sys/wait.h>
-#include <string.h>
-#define PIPEX "pipex"
-#endif //PIPEX_H
+# define PIPEX_H
+# include "../ft_printf/src/ft_printf.h"
+# include <stdio.h>
+# include <errno.h>
+# include <fcntl.h>
+# include <sys/wait.h>
+# include <string.h>
+# ifndef PIPEX
+#  define PIPEX "pipex"
+# endif //PIPEX
 
 typedef struct s_pipe_rw
 {
@@ -36,3 +45,5 @@ void		close_wait(t_list *dyn, int fps[4], pid_t pids[2]);
 char		**get_path(t_list **dyn, char **envp);
 
 char		*get_exec_path(t_list **dyn, char **path, const char *cmd);
+
+#endif //PIPEX_H

@@ -1,6 +1,14 @@
-//
-// Created by 이재현 on 2025-03-17.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdc.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaehylee <jaehylee@student.42gyeongsan.kr> +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/23 12:55:14 by jaehylee          #+#    #+#             */
+/*   Updated: 2025/03/23 14:58:52 by jaehylee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "pipex.h"
 
@@ -30,7 +38,8 @@ t_pipe_rw	*fdc_pipe(t_list **dyn, t_list **fds)
 	}
 	rw->read_end = _fds[0];
 	rw->write_end = _fds[1];
-	if (!fdc_add_to_list(dyn, fds, rw->read_end) || !fdc_add_to_list(dyn, fds, rw->write_end))
+	if (!fdc_add_to_list(dyn, fds, rw->read_end) || !fdc_add_to_list(dyn,
+			fds, rw->write_end))
 		return (NULL);
 	return (rw);
 }

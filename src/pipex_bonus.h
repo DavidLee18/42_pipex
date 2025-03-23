@@ -1,17 +1,26 @@
-//
-// Created by 이재현 on 2025-03-16.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pipex_bonus.h                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaehylee <jaehylee@student.42gyeongsan.kr> +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/23 12:55:14 by jaehylee          #+#    #+#             */
+/*   Updated: 2025/03/23 14:53:47 by jaehylee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#ifndef PIPEX_H
-#define PIPEX_H
-#include "../ft_printf/src/ft_printf.h"
-#include <stdio.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <sys/wait.h>
-#include <string.h>
-#define PIPEX "pipex_bonus"
-#endif //PIPEX_H
+#ifndef PIPEX_BONUS_H
+# define PIPEX_BONUS_H
+# include "../ft_printf/src/ft_printf.h"
+# include <stdio.h>
+# include <errno.h>
+# include <fcntl.h>
+# include <sys/wait.h>
+# include <string.h>
+# ifndef PIPEX
+#  define PIPEX "pipex_bonus"
+# endif //PIPEX
 
 typedef struct s_pipe_rw
 {
@@ -50,3 +59,5 @@ int			open_files(t_vec *fps, t_list **dyn, char **inf, char *outf);
 char		*getln_until(t_list **dyn, char *limit);
 
 void		fps_close_all(t_list *dyn, t_vec *fps);
+
+#endif //PIPEX_BONUS_H

@@ -1,6 +1,14 @@
-//
-// Created by 이재현 on 2025-03-21.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fps2_bonus.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaehylee <jaehylee@student.42gyeongsan.kr> +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/23 12:55:14 by jaehylee          #+#    #+#             */
+/*   Updated: 2025/03/23 14:56:41 by jaehylee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "pipex_bonus.h"
 
@@ -19,6 +27,7 @@ char	*getln_until(t_list **dyn, char *limit)
 		temp = gc_getline(dyn, STDIN_FILENO);
 	}
 	if (temp == NULL || ft_strcmp(gc_strtrim(dyn, temp, "\n"), limit) != 0)
-		return (ft_fprintf(STDERR_FILENO, "%s: expected \'%s\', got EOF", PIPEX, limit), NULL);
+		return (ft_fprintf(STDERR_FILENO, "%s: expected \'%s\', got EOF", PIPEX,
+				limit), NULL);
 	return (str);
 }
