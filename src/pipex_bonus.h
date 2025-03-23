@@ -11,7 +11,6 @@
 #include <sys/wait.h>
 #include <string.h>
 #define PIPEX "pipex_bonus"
-#define BSIZE 42
 #endif //PIPEX_H
 
 typedef struct s_pipe_rw
@@ -49,7 +48,5 @@ void		fill_zeros(t_list **dyn, t_vec *fps, size_t len);
 int			open_files(t_vec *fps, t_list **dyn, char **inf, char *outf);
 
 char		*getln_until(t_list **dyn, char *limit);
-
-char		*getch_loop(t_list **dyn, char *str, char *limit);
 
 void		fps_close_all(t_list *dyn, t_vec *fps);

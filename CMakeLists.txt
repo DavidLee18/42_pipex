@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 project(pipex)
 set(CMAKE_C_STANDARD 99)
-set(CMAKE_C_FLAGS "-Wall -Wextra -Werror -g -foptimize-sibling-calls -O2") #
+set(CMAKE_C_FLAGS "-Wall -Wextra -Werror -g") #-foptimize-sibling-calls -O2
 add_subdirectory(ft_printf)
 set(SOURCE_FILES
         src/main.c

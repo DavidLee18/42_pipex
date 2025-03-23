@@ -7,38 +7,18 @@
 char	*getln_until(t_list **dyn, char *limit)
 {
 	char	*str;
+	char	*temp;
 
-	str = (char *)gc_calloc(dyn, BSIZE + 1, sizeof(char));
-	if (str == NULL)
-		return (NULL);
+	str = "";
 	ft_fprintf(STDOUT_FILENO, ">");
-	return (getch_loop(dyn, str, limit));
-}
-
-char	*getch_loop(t_list **dyn, char *str, char *limit)
-{
-	ssize_t	i;
-	char	*pos;
-
-	i = read(STDIN_FILENO, str, BSIZE);
-	if (i < 0)
-		return (NULL);
-	if (i == 0)
-		return (ft_fprintf(STDERR_FILENO, "pipex_bonus: expected \'%s\', found EOF\n", limit), NULL);
-	str[i] = '\0';
-	pos = ft_strnstr(str, limit, BSIZE);
-	if (pos == NULL)
+	temp = gc_getch_until(dyn, STDIN_FILENO, "\n");
+	while (temp != NULL && ft_strcmp(gc_strtrim(dyn, temp, "\n"), limit) != 0)
 	{
-		if (str[i - 1] == '\n')
-			ft_fprintf(STDOUT_FILENO, ">");
-		pos = gc_calloc(dyn, BSIZE + 1, sizeof(char));
-		if (pos == NULL)
-			return (NULL);
-		pos = getch_loop(dyn, pos, limit);
-		if (pos == NULL)
-			return (NULL);
-		return (gc_strjoin(dyn, str, pos));
+		str = gc_strjoin(dyn, str, temp);
+		ft_fprintf(STDOUT_FILENO, ">");
+		temp = gc_getch_until(dyn, STDIN_FILENO, "\n");
 	}
-	*pos = '\0';
+	if (temp == NULL || ft_strcmp(gc_strtrim(dyn, temp, "\n"), limit) != 0)
+		return (ft_fprintf(STDERR_FILENO, "%s: expected \'%s\', got EOF", PIPEX, limit), NULL);
 	return (str);
 }

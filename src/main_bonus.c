@@ -17,7 +17,7 @@ int main(const int argc, char **argv, char **envp)
 		return (perror(PIPEX), EXIT_FAILURE);
 	if (ft_strcmp(argv[1], "here_doc") && access(argv[1], R_OK) == -1)
 		perror(PIPEX);
-	fill_zeros(&dyn, &fps, 2 * (argc - 3));
+	fill_zeros(&dyn, &fps, 2 * (argc - 3 - (ft_strcmp(argv[1], "here_doc") == 0)));
 	if (open_pipes(&fps) == -1)
 		return (perror(PIPEX), fps_close_all(dyn, &fps), EXIT_FAILURE);
 	if (open_files(&fps, &dyn, argv + 1, argv[argc - 1]) == -1)
@@ -66,7 +66,7 @@ pid_t	exec_n(t_list **dyn, char **arg_env[2], t_vec *fps, size_t n)
 	char	**argv;
 	char	*absol_path;
 
-	argv = gc_split(dyn, arg_env[0][n + 2], ' ');
+	argv = gc_split(dyn, arg_env[0][n + 2 + (ft_strcmp(arg_env[0][1], "here_doc") == 0)], ' ');
 	if (argv == NULL)
 		return (perror(PIPEX), -1);
 	absol_path = get_exec_path(dyn, get_path(dyn, arg_env[1]), argv[0]);
