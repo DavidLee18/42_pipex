@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ft_printf" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ft_printf/libft" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ft_printf/libft/get_next_line" vcs="Git" />
+  </component>
+</project>
