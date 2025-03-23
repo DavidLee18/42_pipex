@@ -11,12 +11,12 @@ char	*getln_until(t_list **dyn, char *limit)
 
 	str = "";
 	ft_fprintf(STDOUT_FILENO, ">");
-	temp = gc_getch_until(dyn, STDIN_FILENO, "\n");
+	temp = gc_getline(dyn, STDIN_FILENO);
 	while (temp != NULL && ft_strcmp(gc_strtrim(dyn, temp, "\n"), limit) != 0)
 	{
 		str = gc_strjoin(dyn, str, temp);
 		ft_fprintf(STDOUT_FILENO, ">");
-		temp = gc_getch_until(dyn, STDIN_FILENO, "\n");
+		temp = gc_getline(dyn, STDIN_FILENO);
 	}
 	if (temp == NULL || ft_strcmp(gc_strtrim(dyn, temp, "\n"), limit) != 0)
 		return (ft_fprintf(STDERR_FILENO, "%s: expected \'%s\', got EOF", PIPEX, limit), NULL);
