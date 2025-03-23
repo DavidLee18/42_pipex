@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexRemoved" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5236c5fe-4f80-46e2-9eba-315b77f0dae0" name="Changes" comment="update Makefile" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CMakeLists.txt" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="cmake" />
+        <entry key="$PROJECT_DIR$/ft_printf" value="cmake" />
+        <entry key="$PROJECT_DIR$/ft_printf/libft" value="cmake" />
+        <entry key="$PROJECT_DIR$/ft_printf/libft/get_next_line" value="5ad999320306798df36cf525244e821920ab32ce" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/ft_printf" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;DavidLee18&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DavidLee18/42_pipex.git&quot;,
+    &quot;accountId&quot;: &quot;0d5e5cf6-1afe-49c8-8ca2-4db2d9b8fdd6&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/cmake-build-debug/outfile" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/ijaehyeon/source/42_pipex/ft_printf/libft/gc.c" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ft_printf/src/free_fmt_arg.c" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ijaehyeon/source/42_pipex/ft_printf/src/free_fmt_arg.c" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/ijaehyeon/source/42_pipex/ft_printf/src/free_fmt_arg.c" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2024" />
+    <option name="minorVersion" value="3.4" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2uNbiaZBZFORdP0F9Yduytv6Kgh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "CMake Application.pipex.executor": "Run",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.west.config.association.type.startup.service": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "/Users/ijaehyeon/source/42_pipex/ft_printf/libft",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.make"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ft_printf/libft" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="pipex" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="infile &quot;/bin/cat&quot; &quot;/usr/bin/grep e&quot; outfile" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project" TARGET_NAME="pipex" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Project" RUN_TARGET_NAME="pipex">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5236c5fe-4f80-46e2-9eba-315b77f0dae0" name="Changes" comment="" />
+      <created>1742092106566</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742092106566</updated>
+      <workItem from="1742092107631" duration="510000" />
+      <workItem from="1742092622151" duration="93000" />
+      <workItem from="1742092718591" duration="926000" />
+      <workItem from="1742193652126" duration="27374000" />
+      <workItem from="1742270740725" duration="100469000" />
+      <workItem from="1742566660685" duration="25998000" />
+    </task>
+    <task id="LOCAL-00001" summary="update `ft_printf` to `ft_fprintf`">
+      <option name="closed" value="true" />
+      <created>1742201362286</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742201362286</updated>
+    </task>
+    <task id="LOCAL-00002" summary="enable `ft_fprintf` to print `t_vec`">
+      <option name="closed" value="true" />
+      <created>1742203622944</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1742203622944</updated>
+    </task>
+    <task id="LOCAL-00003" summary="init `dyn` to `NULL` before use!!">
+      <option name="closed" value="true" />
+      <created>1742204387510</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742204387510</updated>
+    </task>
+    <task id="LOCAL-00004" summary="first sketch">
+      <option name="closed" value="true" />
+      <created>1742287671087</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742287671087</updated>
+    </task>
+    <task id="LOCAL-00005" summary="only 1 pipe is needed!">
+      <option name="closed" value="true" />
+      <created>1742365050104</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1742365050104</updated>
+    </task>
+    <task id="LOCAL-00006" summary="we must close unused pipe ends!">
+      <option name="closed" value="true" />
+      <created>1742374698246</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1742374698246</updated>
+    </task>
+    <task id="LOCAL-00007" summary="second exec runs even if first fails">
+      <option name="closed" value="true" />
+      <created>1742392583905</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1742392583905</updated>
+    </task>
+    <task id="LOCAL-00008" summary="enable to exec whose location is on the PATH">
+      <option name="closed" value="true" />
+      <created>1742429213863</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1742429213863</updated>
+    </task>
+    <task id="LOCAL-00009" summary="bonus: multi-pipe works, here_doc is on progress..">
+      <option name="closed" value="true" />
+      <created>1742562889203</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1742562889203</updated>
+    </task>
+    <task id="LOCAL-00010" summary="impl `gc_getline` + here_doc!">
+      <option name="closed" value="true" />
+      <created>1742699074759</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1742699074759</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix typo..">
+      <option name="closed" value="true" />
+      <created>1742699163207</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1742699163207</updated>
+    </task>
+    <task id="LOCAL-00012" summary="update Makefile">
+      <option name="closed" value="true" />
+      <created>1742701646145</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1742701646145</updated>
+    </task>
+    <task id="LOCAL-00013" summary="update Makefile">
+      <option name="closed" value="true" />
+      <created>1742701970681</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1742701970681</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update `ft_printf` to `ft_fprintf`" />
+    <MESSAGE value="enable `ft_fprintf` to print `t_vec`" />
+    <MESSAGE value="init `dyn` to `NULL` before use!!" />
+    <MESSAGE value="first sketch" />
+    <MESSAGE value="only 1 pipe is needed!" />
+    <MESSAGE value="we must close unused pipe ends!" />
+    <MESSAGE value="second exec runs even if first fails" />
+    <MESSAGE value="enable to exec whose location is on the PATH" />
+    <MESSAGE value="bonus: multi-pipe works, here_doc is on progress.." />
+    <MESSAGE value="impl `gc_getline` + here_doc!" />
+    <MESSAGE value="fix typo.." />
+    <MESSAGE value="update Makefile" />
+    <option name="LAST_COMMIT_MESSAGE" value="update Makefile" />
+  </component>
+</project>
