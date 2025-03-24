@@ -6,7 +6,7 @@
 /*   By: jaehylee <jaehylee@student.42gyeongsan.kr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 12:55:14 by jaehylee          #+#    #+#             */
-/*   Updated: 2025/03/23 14:58:06 by jaehylee         ###   ########.fr       */
+/*   Updated: 2025/03/24 18:27:30 by jaehylee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@ int	main(const int argc, char **argv, char **envp)
 {
 	int			fps[4];
 	t_list		*dyn;
-	t_list		*fds;
 	pid_t		pids[2];
 
 	dyn = NULL;
-	fds = NULL;
 	if (argc != 5)
 		return (ft_fprintf(STDERR_FILENO, "there should be 4 args..\n"),
 			EXIT_FAILURE);
@@ -30,23 +28,23 @@ int	main(const int argc, char **argv, char **envp)
 		perror(PIPEX);
 	if (pipe(fps) == -1)
 		return (perror(PIPEX), EXIT_FAILURE);
-	fps[2] = fdc_open(&dyn, &fds, argv[1], O_RDONLY);
-	fps[3] = fdc_open(&dyn, &fds, argv[4], O_WRONLY | O_CREAT | O_TRUNC);
-	pids[0] = exec1((t_list *[]){dyn, fds}, argv[2], fps, envp);
-	pids[1] = exec2((t_list *[]){dyn, fds}, argv[3], fps, envp);
-	return (close_wait(dyn, fps, pids), EXIT_SUCCESS);
+	fps[2] = open(argv[1], O_RDONLY);
+	fps[3] = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 200);
+	pids[0] = exec1(&dyn, argv[2], fps, envp);
+	pids[1] = exec2(&dyn, argv[3], fps, envp);
+	return (close_wait(&dyn, fps, pids), EXIT_SUCCESS);
 }
 
-pid_t	exec1(t_list *dyn_fds[2], const char *cmd, int fps[4], char **envp)
+pid_t	exec1(t_list **dyn, const char *cmd, int fps[4], char **envp)
 {
 	pid_t	id;
 	char	**argv;
 	char	*absol_path;
 
-	argv = gc_split(&dyn_fds[0], cmd, ' ');
+	argv = gc_split(dyn, cmd, ' ');
 	if (argv == NULL)
 		return (perror(PIPEX), -1);
-	absol_path = get_exec_path(&dyn_fds[0], get_path(&dyn_fds[0], envp),
+	absol_path = get_exec_path(dyn, get_path(dyn, envp),
 			argv[0]);
 	if (absol_path == NULL)
 		return (perror(PIPEX), -1);
@@ -58,23 +56,24 @@ pid_t	exec1(t_list *dyn_fds[2], const char *cmd, int fps[4], char **envp)
 		close(fps[0]);
 		if (dup2(fps[1], STDOUT_FILENO) == -1 || dup2(fps[2],
 				STDIN_FILENO) == -1)
-			exit(EXIT_FAILURE);
+			(gc_free_all(*dyn), exit(EXIT_FAILURE));
 		execve(absol_path, argv, envp);
+		gc_free_all(*dyn);
 		exit(EXIT_FAILURE);
 	}
 	return (id);
 }
 
-pid_t	exec2(t_list *dyn_fds[2], const char *cmd, int fps[4], char **envp)
+pid_t	exec2(t_list **dyn, const char *cmd, int fps[4], char **envp)
 {
 	pid_t	id;
 	char	**argv;
 	char	*absol_path;
 
-	argv = gc_split(&dyn_fds[0], cmd, ' ');
+	argv = gc_split(dyn, cmd, ' ');
 	if (argv == NULL)
 		return (perror(PIPEX), -1);
-	absol_path = get_exec_path(&dyn_fds[0], get_path(&dyn_fds[0], envp),
+	absol_path = get_exec_path(dyn, get_path(dyn, envp),
 			argv[0]);
 	if (absol_path == NULL)
 		return (perror(PIPEX), -1);
@@ -86,14 +85,15 @@ pid_t	exec2(t_list *dyn_fds[2], const char *cmd, int fps[4], char **envp)
 		close(fps[1]);
 		if (dup2(fps[0], STDIN_FILENO) == -1 || dup2(fps[3],
 				STDOUT_FILENO) == -1)
-			exit(EXIT_FAILURE);
+			(gc_free_all(*dyn), exit(EXIT_FAILURE));
 		execve(absol_path, argv, envp);
+		gc_free_all(*dyn);
 		exit(EXIT_FAILURE);
 	}
 	return (id);
 }
 
-void	close_wait(t_list *dyn, int fps[4], pid_t pids[2])
+void	close_wait(t_list **dyn, int fps[4], pid_t pids[2])
 {
 	close(fps[0]);
 	close(fps[1]);
@@ -101,5 +101,5 @@ void	close_wait(t_list *dyn, int fps[4], pid_t pids[2])
 	close(fps[3]);
 	waitpid(pids[0], NULL, 0);
 	waitpid(pids[1], NULL, 0);
-	gc_free_all(dyn);
+	gc_free_all(*dyn);
 }

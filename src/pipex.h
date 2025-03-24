@@ -6,7 +6,7 @@
 /*   By: jaehylee <jaehylee@student.42gyeongsan.kr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 12:55:14 by jaehylee          #+#    #+#             */
-/*   Updated: 2025/03/23 14:55:44 by jaehylee         ###   ########.fr       */
+/*   Updated: 2025/03/24 18:18:45 by jaehylee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ int			fdc_close_all(t_list *dyn, t_list *fds);
 
 _Bool		fdc_add_to_list(t_list **dyn, t_list **fds, int fd);
 
-pid_t		exec1(t_list *dyn_fds[2], const char *cmd, int fps[4], char **envp);
+pid_t		exec1(t_list **dyn, const char *cmd, int fps[4], char **envp);
 
-pid_t		exec2(t_list *dyn_fds[2], const char *cmd, int fps[4], char **envp);
+pid_t		exec2(t_list **dyn, const char *cmd, int fps[4], char **envp);
 
-void		close_wait(t_list *dyn, int fps[4], pid_t pids[2]);
+void		close_wait(t_list **dyn, int fps[4], pid_t pids[2]);
 
 char		**get_path(t_list **dyn, char **envp);
 
