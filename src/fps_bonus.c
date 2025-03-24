@@ -6,7 +6,7 @@
 /*   By: jaehylee <jaehylee@student.42gyeongsan.kr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 12:55:14 by jaehylee          #+#    #+#             */
-/*   Updated: 2025/03/23 14:59:07 by jaehylee         ###   ########.fr       */
+/*   Updated: 2025/03/24 16:38:33 by jaehylee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	open_files(t_vec *fps, t_list **dyn, char **inf, char *outf)
 		if (pipe(fp) == -1)
 			return (-1);
 		fps->ptr[0] = fp[0];
-		fps->ptr[fps->len - 1] = open(outf, O_WRONLY | O_CREAT | O_APPEND);
+		fps->ptr[fps->len - 1] = open(outf, O_WRONLY | O_CREAT | O_APPEND, 200);
 		temp = getln_until(dyn, inf[1]);
 		if (temp == NULL)
 			return (close(fp[0]), close(fp[1]), -1);
@@ -62,7 +62,7 @@ int	open_files(t_vec *fps, t_list **dyn, char **inf, char *outf)
 		return (close(fp[1]), 0);
 	}
 	fps->ptr[0] = open(*inf, O_RDONLY);
-	fps->ptr[fps->len - 1] = open(outf, O_WRONLY | O_CREAT | O_TRUNC);
+	fps->ptr[fps->len - 1] = open(outf, O_WRONLY | O_CREAT | O_TRUNC, 200);
 	return (0);
 }
 
