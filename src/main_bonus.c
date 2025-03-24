@@ -6,7 +6,7 @@
 /*   By: jaehylee <jaehylee@student.42gyeongsan.kr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 12:55:14 by jaehylee          #+#    #+#             */
-/*   Updated: 2025/03/23 14:52:00 by jaehylee         ###   ########.fr       */
+/*   Updated: 2025/03/24 18:50:23 by jaehylee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ int	main(const int argc, char **argv, char **envp)
 	fill_zeros(&dyn, &fps, 2 * (argc - 3 - (ft_strcmp(argv[1],
 					"here_doc") == 0)));
 	if (open_pipes(&fps) == -1)
-		return (perror(PIPEX), fps_close_all(dyn, &fps), EXIT_FAILURE);
+		return (perror(PIPEX), fps_close_all(&dyn, &fps), EXIT_FAILURE);
 	if (open_files(&fps, &dyn, argv + 1, argv[argc - 1]) == -1)
-		return (perror(PIPEX), fps_close_all(dyn, &fps), EXIT_FAILURE);
+		return (perror(PIPEX), fps_close_all(&dyn, &fps), EXIT_FAILURE);
 	exec_cmds(&dyn, (char **[]){argv, envp}, &fps);
-	return (close_wait(dyn, &fps), EXIT_SUCCESS);
+	return (close_wait(&dyn, &fps), EXIT_SUCCESS);
 }
 
 int	open_pipes(const t_vec *fps)
@@ -62,7 +62,7 @@ void	exec_cmds(t_list **dyn, char **arg_env[2], t_vec *fps)
 	{
 		if (exec_n(dyn, arg_env, fps, i) == -1)
 		{
-			fps_close_all(*dyn, fps);
+			fps_close_all(dyn, fps);
 			exit(EXIT_FAILURE);
 		}
 		i++;
@@ -90,17 +90,16 @@ pid_t	exec_n(t_list **dyn, char **arg_env[2], t_vec *fps, size_t n)
 		close_pipes(fps, n);
 		if (dup2(fps->ptr[2 * n], STDIN_FILENO) == -1
 			|| dup2(fps->ptr[2 * n + 1], STDOUT_FILENO) == -1)
-			exit(EXIT_FAILURE);
+			(gc_free_all(*dyn), exit(EXIT_FAILURE));
 		execve(absol_path, argv, arg_env[1]);
+		gc_free_all(*dyn);
 		exit(EXIT_FAILURE);
 	}
 	return (id);
 }
 
-void	close_wait(t_list *dyn, t_vec *fps)
+void	close_wait(t_list **dyn, t_vec *fps)
 {
-	fps_close(dyn, fps);
-	close(fps->ptr[0]);
-	close(fps->ptr[fps->len - 1]);
+	fps_close_all(dyn, fps);
 	waitpid(-1, NULL, 0);
 }
