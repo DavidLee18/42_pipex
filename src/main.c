@@ -6,7 +6,7 @@
 /*   By: jaehylee <jaehylee@student.42gyeongsan.kr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 12:55:14 by jaehylee          #+#    #+#             */
-/*   Updated: 2025/03/24 18:41:50 by jaehylee         ###   ########.fr       */
+/*   Updated: 2025/03/25 15:48:33 by jaehylee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	main(const int argc, char **argv, char **envp)
 	if (pipe(fps) == -1)
 		return (perror(PIPEX), EXIT_FAILURE);
 	fps[2] = open(argv[1], O_RDONLY);
-	fps[3] = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 400 | 200);
+	fps[3] = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC,
+			S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 	pids[0] = exec1(&dyn, argv[2], fps, envp);
 	pids[1] = exec2(&dyn, argv[3], fps, envp);
 	return (close_wait(&dyn, fps, pids), EXIT_SUCCESS);

@@ -7,9 +7,10 @@ BONUS_NAME := pipex_bonus
 BUILD_DIR := build
 SRC_DIR := src
 
-SRCS := src/fdc.c src/path.c src/main.c
-BONUS_SRCS := src/main_bonus.c src/fdc.c src/path.c \
-              src/fps_bonus.c src/fps2_bonus.c
+SRCS := src/fd_cleaner.c src/path.c src/main.c
+BONUS_SRCS := src/main_bonus.c src/fd_cleaner.c \
+			src/path.c src/files_pipes_bonus.c \
+			src/getln_until_bonus.c
 
 OBJS := $(patsubst src/%.c, build/%.o, $(SRCS))
 BONUS_OBJS := $(patsubst src/%.c,build/%.o,$(BONUS_SRCS))
