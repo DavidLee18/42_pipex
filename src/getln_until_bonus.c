@@ -6,7 +6,7 @@
 /*   By: jaehylee <jaehylee@student.42gyeongsan.kr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 12:55:14 by jaehylee          #+#    #+#             */
-/*   Updated: 2025/03/25 15:51:48 by jaehylee         ###   ########.fr       */
+/*   Updated: 2025/03/25 21:03:23 by jaehylee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,11 @@ char	*getln_until(t_list **dyn, char *limit)
 		temp = gc_getline(dyn, STDIN_FILENO);
 	}
 	if (temp == NULL)
-		return (ft_fprintf(STDERR_FILENO, "%s: expected ", PIPEX),
-			ft_fprintf(STDERR_FILENO, "\'%s\', got EOF\n", limit), str);
+		return (ft_fprintf(STDERR_FILENO, "%s: expected \'%s\', got EOF\n", PIPEX,
+				limit), str);
 	if (ft_strcmp(gc_strtrim(dyn, temp, "\n"), limit) != 0)
 	{
-		ft_fprintf(STDERR_FILENO, "%s: expected ", PIPEX);
-		ft_fprintf(STDERR_FILENO, "\'%s\', got EOF\n", limit);
+		ft_fprintf(STDERR_FILENO, "%s: expected \'%s\', got EOF\n", PIPEX, limit);
 		return (gc_strjoin(dyn, str, temp));
 	}
 	return (str);
